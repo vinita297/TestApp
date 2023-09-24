@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Alert,
   Image,
+  StatusBar,
 } from 'react-native';
 import CustomHeader from '../Components/CustomHeader';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
@@ -28,14 +29,14 @@ const ProfileScreen: FC<ProfileScreenProps> = ({navigation, route}) => {
   };
 
   return (
-    <View>
+    <View style={styles.MainContainer}>
       <CustomHeader title="OTP Verify" />
       <View style={styles.Container}>
         <Image
           style={styles.ImageStyle}
           resizeMode="contain"
           source={{
-            uri: 'https://img.freepik.com/free-vector/young-people-holding-smartphones-korean-drawing-style_23-2148313980.jpg?w=2000',
+            uri: 'https://img.freepik.com/free-vector/young-people-holding-smartphones-korean-drawing-style_52683-24867.jpg?t=st=1695583019~exp=1695583619~hmac=423409e8f1290b3415a2e168576254db760f9758ef86236bb07145ccbc481387',
           }}
         />
         <View style={styles.OtpSentView}>
@@ -52,10 +53,6 @@ const ProfileScreen: FC<ProfileScreenProps> = ({navigation, route}) => {
             }}
             autoFocusOnLoad
             codeInputFieldStyle={styles.underlineStyleBase}
-            //   codeInputHighlightStyle={styles.underlineStyleHighLighted}
-            //   onCodeFilled={code => {
-            //     console.log(`Code is ${code}, you are good to go!`);
-            //   }}
           />
         </View>
         <TouchableOpacity onPress={() => verifyOTP()}>
@@ -76,6 +73,11 @@ const ProfileScreen: FC<ProfileScreenProps> = ({navigation, route}) => {
 };
 
 const styles = StyleSheet.create({
+  MainContainer: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
+
   Container: {
     padding: 20,
   },
@@ -109,19 +111,28 @@ const styles = StyleSheet.create({
   SignUpTextView: {
     padding: 20,
   },
+
   OtpSentText: {
     color: '#808080',
     fontWeight: 'bold',
   },
+
   OtpSentView: {
     alignItems: 'center',
     marginBottom: 30,
   },
+
   OtpSentNo: {
     color: '#000',
     fontWeight: 'bold',
   },
-  ImageStyle: {alignSelf: 'center', height: 200, width: 200},
+
+  ImageStyle: {
+    alignSelf: 'center',
+    height: 200,
+    width: 200,
+  },
+
   BottomView: {
     borderBottomWidth: 2,
     width: 70,

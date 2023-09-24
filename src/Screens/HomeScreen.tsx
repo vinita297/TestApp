@@ -9,7 +9,6 @@ import {
   Image,
 } from 'react-native';
 import CustomHeader from '../Components/CustomHeader';
-import {useSafeAreaFrame} from 'react-native-safe-area-context';
 
 interface HomeScreenProps {
   navigation: any;
@@ -28,14 +27,14 @@ const HomeScreen: FC<HomeScreenProps> = ({navigation}) => {
   };
 
   return (
-    <View>
+    <View style={styles.MainContainer}>
       <CustomHeader title="Log in" />
       <View style={styles.Container}>
         <Image
           style={styles.ImageStyle}
           resizeMode="contain"
           source={{
-            uri: 'https://img.freepik.com/free-vector/young-people-holding-smartphones-korean-drawing-style_23-2148313980.jpg?w=2000',
+            uri: 'https://img.freepik.com/free-vector/young-people-holding-smartphones-korean-drawing-style_52683-24867.jpg?t=st=1695583019~exp=1695583619~hmac=423409e8f1290b3415a2e168576254db760f9758ef86236bb07145ccbc481387',
           }}
         />
         <TextInput
@@ -64,6 +63,11 @@ const HomeScreen: FC<HomeScreenProps> = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  MainContainer: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
+
   Container: {
     padding: 20,
   },
@@ -97,7 +101,13 @@ const styles = StyleSheet.create({
   SignUpTextView: {
     padding: 20,
   },
-  ImageStyle: {alignSelf: 'center', height: 200, width: 200},
+
+  ImageStyle: {
+    alignSelf: 'center',
+    height: 200,
+    width: 200,
+  },
+
   BottomView: {
     borderBottomWidth: 2,
     width: 70,
